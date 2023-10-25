@@ -20,11 +20,11 @@
   <!-- AOS LINK  -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-  <title>SR</title>
+  <title>Contact</title>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg bg-dark fixed-top">
     <div class="container-fluid ">
       <a class="navbar-brand" href="index.php"><span style="color: #5e9693;">Sagar</span><span style="color: white;">Restaurant</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,7 +48,7 @@
       </div>
     </div>
   </nav>
- 
+
 
   <div class="con-us">
     <div class="container container-fluid py-5 ">
@@ -103,12 +103,12 @@
             <h1>feedback <span class="text-primary">form</span></h1>
             <hr class="w-50 mx-auto mb-5">
           </div>
-          <form method="get">
-            <input type="text" class="form-control" placeholder="full name"><br>
-            <input type="mail" class="form-control" placeholder="mail "><br>
-            <input type="text " class="form-control" placeholder="your subject"><br>
-            <textarea placeholder="message" class="form-control" cols="50"></textarea>
-            <button type="submit" class="btn btn-primary my-3">Submit</button>
+          <form method="POST">
+            <input type="text" class="form-control" name="name" placeholder="full name"><br>
+            <input type="mail" class="form-control" name="mail" placeholder="mail "><br>
+            <input type="text " class="form-control" name="subject" placeholder="your subject"><br>
+            <textarea placeholder="message" class="form-control" name="sub" cols="50"></textarea>
+            <button type="submit" name="submit" class="btn btn-primary my-3">Submit</button>
           </form>
         </div>
       </div>
@@ -178,7 +178,7 @@
 
       <div class="card-body bg-dark ">
         <p>
-        © Copyright Restaurantly.all rights reserved <br> designed by <span class="text-primary">MEET , JAY</span>
+          © Copyright Restaurantly.all rights reserved <br> designed by <span class="text-primary">MEET , JAY</span>
         </p>
       </div>
         
@@ -192,3 +192,33 @@
 </body>
 
 </html>
+
+
+
+<?php
+
+use LDAP\Result;
+
+if (isset($_POST['submit'])) {
+  include_once("conntect.php");
+  //getting the post values
+  $mail = $_POST['mail'];
+  $name = $_POST['name'];
+  $sub = $_POST['sub'];
+
+
+  // Query for data insertion
+
+  $query = "	INSERT INTO `fedback`( `mail`, `name`, `sub`) VALUES (  '$mail','$name','$sub')";
+
+  $Result = mysqli_query($con, $query);
+
+  if ($Result) {
+    echo "<script>alert('your data successfully inserted ');</script>";
+    echo "<script type='text/javascript'> document.location ='index.php'; </script>";
+  } else {
+    echo "<script>alert('Something Went Wrong. Please try again');</script>";
+  }
+}
+
+?>

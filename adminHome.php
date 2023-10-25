@@ -30,7 +30,7 @@
     <!-- AOS LINK  -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
-    <title>photo</title>
+    <title>admin home page</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg bg-dark mb-3 ">

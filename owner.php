@@ -43,7 +43,7 @@ if (isset($_POST['submit']) && isset($_FILES['image_name'])) {
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.4.2/mdb.min.css" rel="stylesheet" />
 
-    <title>Document</title>
+    <title>add to item</title>
     <style>
       
 #form3Example1c{

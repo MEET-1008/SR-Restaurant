@@ -35,7 +35,7 @@
       font-size: large;
     }
   </style>
-  <title>SR</title>
+  <title>manu</title>
 </head>
 
 <body>
